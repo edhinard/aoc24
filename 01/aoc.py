@@ -77,18 +77,19 @@ class Input:
             yield line
 
     def lineconvert(self, line):
-        if isinstance(self.split, re.Pattern):
-            items = m.groups() if (m := self.split.match(line)) else [line]
-        elif self.split == "":
-            items = list(line)
-        elif isinstance(self.split, str):
-            items = line.split(self.split)
-        elif self.split == Input.NoSplit:
-            items = [line]
-        elif self.split is None:
-            items = line.split()
-        else:
-            raise ValueError(f"bad value for split={self.split}")
+        match self.split:
+            case re.Pattern():
+                items = m.groups() if (m := self.split.match(line)) else [line]
+            case "":
+                items = list(line)
+            case str():
+                items = line.split(self.split)
+            case Input.NoSplit:
+                items = [line]
+            case None:
+                items = line.split()
+            case _:
+                raise ValueError(f"bad value for split={self.split}")
 
         if self.convert:
             for i, item in enumerate(items[:]):
