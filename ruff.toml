@@ -1,0 +1,45 @@
+target-version = "py312"
+line-length = 120
+indent-width = 4
+exclude = []
+
+[lint]
+select = [
+  "F",    # Pyflakes
+  "E",    # pycodestyle
+  "W",    # pycodestyle
+  "C90",  # mccabe
+  "I",    # isort
+  "UP",   # pyupgrade
+  "S",    # flake8-bandit
+  "FBT",  # flake8-boolean-trap
+  "B",    # flake8-bugbear
+  "A",    # flake8-builtins
+  "COM",  # flake8-commas
+  "DTZ",  # flake8-datetimez
+  "T10",  # flake8-debugger
+  "EXE",  # flake8-executable
+  "ISC",  # flake8-implicit-str-concat
+  "ICN",  # flake8-import-conventions
+  "LOG",  # flake8-logging
+  "G",    # flake8-logging-format
+  "PIE",  # flake8-pie
+  "PT",   # flake8-pytest-style
+  "Q",    # flake8-quotes
+  "RSE",  # flake8-raise
+  "RET",  # flake8-return
+  "SLF",  # flake8-self
+  "SLOT", # flake8-slots
+  "SIM",  # flake8-simplify
+  "TID",  # flake8-tidy-imports
+  "ARG",  # flake8-unused-arguments
+  "PTH",  # flake8-use-pathlib
+  "PL",   # Pylint
+  "FLY",  # flynt
+  "PERF", # Perflint
+  "FURB", # refurb
+  "RUF",  # Ruff-specific rules
+]
+
+[format]
+indent-style = "space"
