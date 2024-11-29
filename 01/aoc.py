@@ -9,7 +9,7 @@ def _init():
     parentdirname = pathlib.Path().absolute().name
     if m := re.match(r"(\d+)", parentdirname):
         day = int(m.group(1))
-        description += f"\n solution for Day #{day}\n https://adventofcode.com/2022/day/{day}"
+        description += f"\n solution for Day #{day}\n https://adventofcode.com/2024/day/{day}"
     parser = argparse.ArgumentParser(description=description,
                                            formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("part", choices=(1, 2), type=int, help="part")
