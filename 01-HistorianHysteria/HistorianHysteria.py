@@ -2,12 +2,12 @@
 
 import aoc
 
-a, b = list(zip(*aoc.Input(convert=int, split="  "), strict=True))
+left, right = zip(*aoc.Input(convert=int, split=None), strict=True)
 
 if aoc.part == "one":
-    print(sum(abs(x-y) for x,y in zip(sorted(a), sorted(b), strict=True)))
+    print(sum(abs(x-y) for x,y in zip(sorted(left), sorted(right), strict=True)))
 # solution: 2815556
 
 if aoc.part == "two":
-    print(sum(x * b.count(x) for x in a))
+    print(sum(x * right.count(x) for x in left))
 # solution: 23927637
