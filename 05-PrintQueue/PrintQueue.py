@@ -27,8 +27,6 @@ if aoc.part == "one":
 # solution: 4637
 
 
-
-
 if aoc.part == "two":
     def restore(update, rules, index):
         firstpage = update[index]
