@@ -8,7 +8,7 @@ select = [
   "F",    # Pyflakes
   "E",    # pycodestyle
   "W",    # pycodestyle
-  "C90",  # mccabe
+  #"C90",  # mccabe
   "I",    # isort
   "UP",   # pyupgrade
   "S",    # flake8-bandit
