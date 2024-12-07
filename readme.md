@@ -34,7 +34,7 @@ One of the rare occasion to use the `groupby="paragraph"` option of `aoc.Input()
 
 *00:25:21* **4869** / *00:49:33* **3220**
 
-Brute force solution for part two (trying to put an obstacle at every location).
+Brute force solution for part two (trying to put an obstacle at every location). Found afterwards that it is 4 times faster to put an obstacle only on visited places of first part.
 
 ## [--- Day 7: Bridge Repair ---](https://adventofcode.com/2024/day/7)
 
