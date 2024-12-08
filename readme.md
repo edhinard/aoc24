@@ -41,3 +41,9 @@ Brute force solution for part two (trying to put an obstacle at every location).
 *00:14:10* **2467** / *00:41:32* **5047**
 
 The same code for both parts. Only the list of operators changes. The solution for the race took 30 min to run on part 2. I rewrote the function in a recursive way while I despaired of ever having the result. Now 10 times faster but came too late.
+
+## [--- Day 8: Resonant Collinearity ---](https://adventofcode.com/2024/day/8)
+
+*00:17:37* **2050** / *00:49:45* **4807**
+
+I should have read the title of the challenge before starting coding. This would have immediately made me think of the scalar product and avoid wasting 30 minutes.
