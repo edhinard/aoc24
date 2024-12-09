@@ -8,11 +8,11 @@ import aoc
 if aoc.part == "one":
     diskmap = [int(a) for a in aoc.Input().read().strip()]
 
-    # Iterator over blocks in disk map from end to start, skipping space blocks
+    # Iterator over file blocks in disk map from end to start
     # yields: (position, fileID)
-    def fromend(diskmap):
-        position = sum(diskmap) - 1
+    def fileblocksfromend(diskmap):
         index = len(diskmap) - 1
+        position = sum(diskmap) - 1
         while index >= 0:
             ID = index // 2
             length = diskmap[index]
@@ -20,54 +20,40 @@ if aoc.part == "one":
                 yield position, ID
                 position -= 1
             index -=1
+
+            # skip space blocks
             position -= diskmap[index]
             index -= 1
-    fromend = fromend(diskmap)
+    fileblocksfromend = fileblocksfromend(diskmap)
 
-    # Iterator over blocks in disk map
-    # yields: (position, fileID) where fileID is None for space blocks
-    def fromstart(diskmap):
+    # Iterator over space blocks in disk map
+    # yields: position
+    def spaceblocksfromstart(diskmap):
         index = 0
-        position = diskmap[index]
-        while index < len(diskmap):
+        position = 0
+        while index < len(diskmap)-1:
+            # skip file blocks
+            position += diskmap[index]
             index += 1
-            length = diskmap[index]
-            for _ in range(length):
-                yield position, None
-                position += 1
 
-            index +=1
-            ID = index // 2
             length = diskmap[index]
             for _ in range(length):
-                yield position, ID
+                yield position
                 position += 1
-    fromstart = fromstart(diskmap)
+            index +=1
+        while True:
+            yield sum(diskmap)
+    spaceblocksfromstart = spaceblocksfromstart(diskmap)
 
     checksum = 0
-    lastposition = sum(diskmap)
-    while True:
-        # Take next block from map
-        position, fileid = next(fromstart)
-
-        # We are dealing with a space block
-        if fileid is None:
-
-            # Take the last not already processed file block
-            lastposition, lastfileid = next(fromend)
-
-            # The stop condition is reached when that block has already been processed
-            if lastposition <= position:
-                break
-
-            # Fill the space block with the file block and update the checksum
-            checksum += position * lastfileid
-
-        # We are dealing with a file
+    for fileposition, fileid in fileblocksfromend:
+        spaceposition = next(spaceblocksfromstart)
+        if spaceposition < fileposition:
+            # file block can be copied into space block => update checksum with space position
+            checksum += spaceposition * fileid
         else:
-            if lastposition <= position:
-                break
-            checksum += position * fileid
+            # no space left to copy file block => update checksum with current file position
+            checksum += fileposition * fileid
     print(checksum)
 # solution: 6519155389266
 
