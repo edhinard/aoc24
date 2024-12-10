@@ -58,3 +58,4 @@ I love generators, it helped me finding an easy to read solution for part 1. It 
 
 *00:23:45* **3730** / *00:26:13* **3190**
 
+I misread the instructions, as usual. So I coded the solution from part 2 for part 1 first. This served me well when it came time to code the former.
