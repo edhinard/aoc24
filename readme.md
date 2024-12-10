@@ -53,3 +53,8 @@ I should have read the title of the challenge before starting coding. This would
 *01:15:12* **8321** / *03:47:32* **9578**
 
 I love generators, it helped me finding an easy to read solution for part 1. It took me too much time though. I had to go to work where I finished part 2 using the no less beloved `dataclass`.
+
+## [--- Day 10: Hoof It ---](https://adventofcode.com/2024/day/10)
+
+*00:23:45* **3730** / *00:26:13* **3190**
+
