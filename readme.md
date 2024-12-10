@@ -46,4 +46,10 @@ The same code for both parts. Only the list of operators changes. The solution f
 
 *00:17:37* **2050** / *00:49:45* **4807**
 
-I should have read the title of the challenge before starting coding. This would have immediately made me think of the scalar product and avoid wasting 30 minutes.
+I should have read the title of the challenge before starting coding. This would have immediately made me think of using the determinant to test collinearity and avoid wasting 30 minutes.
+
+## [--- Day 9: Disk Fragmenter ---](https://adventofcode.com/2024/day/9)
+
+*01:15:12* **8321** / *03:47:32* **9578**
+
+I love generators, it helped me finding an easy to read solution for part 1. It took me too much time though. I had to go to work where I finished part 2 using the no less beloved `dataclass`.
