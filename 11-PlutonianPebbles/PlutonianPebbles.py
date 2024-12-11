@@ -24,14 +24,10 @@ if aoc.part == "one":
 
 if aoc.part == "two":
     stones = [*next(aoc.Input(split=" "))]
-    for s in range(10):
-        stones=[str(s)]
-        print()
-        print(stones)
-        #for _ in range(10):
-        for _ in range(10):
+    def blink75(stones):
+        for _ in range(75):
+            print(_, len(stones))
             newstones = []
-            alldigit = True
             for stone in stones:
                 if stone == "0":
                     newstones.append("1")
@@ -45,9 +41,9 @@ if aoc.part == "two":
                     newstones.append(b)
                 else:
                     newstones.append(str(int(stone) * 2024))
-                    alldigit = False
-            stones = newstones
-            print(stones)
-            if alldigit:
+            stones = [s for s in newstones if len(s)>1]
+            if not stones:
                 break
-
+    for stone in stones:
+        print()
+        blink75([stone])
