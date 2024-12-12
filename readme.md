@@ -70,9 +70,15 @@ I have read that the input data should not be shared. From now on I will not pus
 
 I fell into the trap. I ran the solution of part 1 with `75` as main parameter. Not only did I not get a solution while I was looking for how to optimize the counting (hoping to do it like on day 7). But my PC froze. Finally I found it easily at the office.
 
+### [--- Day 12: Garden Groups ---](https://adventofcode.com/2024/day/12)
+
+*00:47:02* **5278** / *14:38:50* **19503**
+
+I will eventually learn how to quickly code a Depth Fisrt Search. A debug phase is still necessary. I had the whole work day (and dinner too) to find a way to count the sides of a polygon. I like it when both parts share the same code structure and differ by one function like here.
+
 ## `aoc.py`
 
-I wrote a helper module to ease reading input data. The structure of a solution script is:
+All solutions use a helper module to ease reading input data. The structure of a solution script is:
 
 ```python
 import aoc
@@ -86,4 +92,10 @@ if aoc.part == "two":
 
 At import, the `aoc` module parse the command line arguments. A `1` or a `2` is expected for obvious reason.
 
-The `aoc`  module also defines a class named `Input` which reads the *input.txt* file found in current directory, or prints an error and exits if file is missing or empty. Once instanciated `Input` object acts as an iterator over the lines of *input.txt* file. `\n` char is removed from end of line if present
+The `aoc`  module also defines a class named `Input` which reads the *input.txt* file found in current directory (or the *test.txt* file if `-t`option is present in the command line), or prints an error and exits if file is missing or empty. Once instanciated `Input` object acts as an iterator over the lines of the file. `\n` char is removed from end of lines if present.
+
+```python
+for line in aoc.Input():
+	# do something with the line which is a str
+```
+
