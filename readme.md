@@ -76,6 +76,12 @@ I fell into the trap. I ran the solution of part 1 with `75` as main parameter. 
 
 I will eventually learn how to quickly code a Depth Fisrt Search. A debug phase is still necessary. I had the whole work day (and dinner too) to find a way to count the sides of a polygon. I like it when both parts share the same code structure and differ by one function like here.
 
+### [--- Day 13: Claw Contraption ---](https://adventofcode.com/2024/day/13)
+
+*00:33:05* **3623** / *01:00:47* **2850**
+
+The statement misled me (I think it was intentional). Seeing that the brute force solution of part 1 would not work for part 2, and that all the *arithmetic* tracks were doomed to failure, I finally found the *analytical* solution that fits. + a little improvement in `aoc` module related to spliting with regexp.
+
 ## `aoc.py`
 
 All solutions use a helper module to ease reading input data. The structure of a solution script is:
