@@ -79,7 +79,7 @@ class Input:
     def lineconvert(self, line):
         match self.split:
             case re.Pattern():
-                items = m.groups() if (m := self.split.match(line)) else [line]
+                items = list(m.groups()) if (m := self.split.search(line)) else [line]
             case "":
                 items = list(line)
             case str():
