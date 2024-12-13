@@ -98,10 +98,98 @@ if aoc.part == "two":
 
 At import, the `aoc` module parse the command line arguments. A `1` or a `2` is expected for obvious reason.
 
-The `aoc`  module also defines a class named `Input` which reads the *input.txt* file found in current directory (or the *test.txt* file if `-t`option is present in the command line), or prints an error and exits if file is missing or empty. Once instanciated `Input` object acts as an iterator over the lines of the file. `\n` char is removed from end of lines if present.
+The `aoc`  module also defines a class named `Input`:
+
+`Input(split=NoSplit, convert=None, groupby=None)`
+Reads the *input.txt* file found in current directory (or the *test.txt* file if `-t`option is present in the command line), or prints an error and exits if file is missing or empty.
+
+Once instanciated the object acts as an iterator over the lines of the file (`\n` char is removed from end of lines if present).
+ The simplest usage is then:
 
 ```python
 for line in aoc.Input():
 	# do something with the line which is a str
+```
+
+`split` is an optional parameter. When used the iterator yields `list` instead of `str`:
+ - `split=""`: yields the list of chars in line `==list(line)`
+
+```python
+# aoc24/12-GardenGroups
+# RRRRIICCFF
+# RRRRIICCCF
+# VVRRRCCFFF
+garden = list(aoc.Input(split="")) # list of lists of chars
+rowmax = len(garden)
+colmax = len(garden[0])
+...
+for row in range(rowmax):
+    for col in range(colmax):
+        # do something with garden[row][col]
+```
+
+ - `split=<str|None>`: yields `line.split(<str|None>)`
+
+```python
+# aoc24/07-BridgeRepair
+# 190: 10 19
+# 3267: 81 40 27
+# 83: 17 5
+for equationresult, equationumbers in aoc.Input(split=":"):
+    ...
+```
+
+```python
+# aoc23/12-HotSprings
+# ???.### 1,1,3
+# .??..??...?##. 1,1,3
+# ?#?#?#?#?#?#?#? 1,3,1,6
+ for springs, stats in aoc.Input(split=None):
+     ...
+```
+
+ - `split=<re object>`: yields the matched groups of the regexp over the line or the entire line if no match. Examples:
+
+```python
+# aoc22/16_ProboscideaVolcanium
+# Valve AA has flow rate=0; tunnels lead to valves DD, II, BB
+# Valve BB has flow rate=13; tunnels lead to valves CC, AA
+# Valve CC has flow rate=2; tunnels lead to valves DD, BB
+for valve, flow, tunnels in aoc.Input(split=re.compile(r'Valve (\S+) has flow rate=(\d+); tunnels? leads? to valves? (.*)')):
+```
+
+`convert` is an optional callable that is applied on each items of the splitted line (or on the whole line if not splitted). The item is replaced by the result of the `convert()` call unless an exception is raised in which case the item is left unchanged.
+
+```python
+# aoc24/02-RedNosedReports
+# 7 6 4 2 1
+# 1 2 7 8 9
+# 9 7 6 2 1
+print(sum(safe(report) for report in aoc.Input(convert=int, split=" ")))
+```
+
+If specified, `groupby` should be a positive integer or the string "paragraph". In all cases, the `Input` object acts as an iterator of iterator. The inner iterators are those already described above. The outer iterator groups the lines by a constant number or depending of the presence of blank lines.
+
+```python
+# aoc22/03_RucksackReorganization
+# dvvhtHJhwd
+# SzRSM
+# ffLer
+# GCZfe
+# nMzrffzefez
+for rucksack1, rucksack2, rucksack3 in aoc.input(convert=set, groupby=3):
+    ...
+```
+
+```python
+# aoc24/13-ClawContraption
+# Button A: X+94, Y+34
+# Button B: X+22, Y+67
+# Prize: X=8400, Y=5400
+#
+# Button A: X+26, Y+66
+# Button B: X+67, Y+21
+# Prize: X=12748, Y=12176
+for (Ax,Ay),(Bx,By),(Px,Py) in aoc.Input(split=re.compile(r"X[+=](\d+).*Y[+=](\d+)"), convert=int, groupby="paragraph"):    ...
 ```
 
