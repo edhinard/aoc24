@@ -15,7 +15,7 @@ import aoc
 #    ->                         ->  ->
 #    P is added 10000000000000.(i + j)
 tokens = 0
-for (Ax,Ay),(Bx,By),(Px,Py) in aoc.Input(split=re.compile(r"(\d+).*?(\d+)"), convert=int, groupby="paragraph"):
+for (Ax,Ay),(Bx,By),(Px,Py) in aoc.Input(split=re.compile(r"X[+=](\d+).*Y[+=](\d+)"), convert=int, groupby="paragraph"):
     if aoc.part == "two":
         Px += 10000000000000  # noqa: PLW2901
         Py += 10000000000000  # noqa: PLW2901
