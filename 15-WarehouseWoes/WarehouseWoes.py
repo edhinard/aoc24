@@ -66,16 +66,11 @@ if aoc.part == "two":
         if "@" in expandedline:
             robotrow = row
             robotcol = expandedline.index("@")
-            #expandedline[robotcol] = "."
         warehousemap.append(expandedline)
     height = len(warehousemap)
     width = len(warehousemap[0])
 
-    def recursivemove(move, row=None, col=None):
-        global robotrow, robotcol
-        robot = row is None and col is None
-        if robot:
-            row, col = robotrow, robotcol
+    def canmove(move, row, col):
         moves = {
             "<": (0,-1),
             "^": (-1,0),
@@ -85,37 +80,62 @@ if aoc.part == "two":
         dr,dc = moves[move]
         newrow = row + dr
         newcol = col + dc
-        match item := warehousemap[row][col]:
+        match warehousemap[row][col]:
             case "@":
-                canmove = recursivemove(move, newrow, newcol)
+                return canmove(move, newrow, newcol)
             case "#":
                 return False
             case ".":
                 return True
             case "[":
-                canmove = recursivemove(move, newrow, newcol)
-                if canmove and move in "^v":
+                can = canmove(move, newrow, newcol)
+                if can and move in "^v":
                     warehousemap[row][col] = "."
-                    canmove &= recursivemove(move, row, col+1)
+                    can &= canmove(move, row, col+1)
                     warehousemap[row][col] = "["
+                return can
             case "]":
-                canmove = recursivemove(move, newrow, newcol)
-                if canmove and move in "^v":
+                can = canmove(move, newrow, newcol)
+                if can and move in "^v":
                     warehousemap[row][col] = "."
-                    canmove &= recursivemove(move, row, col-1)
+                    can &= canmove(move, row, col-1)
                     warehousemap[row][col] = "]"
-        if canmove:
-            warehousemap[row][col] = "."
-            warehousemap[newrow][newcol] = item
-            if robot:
-                robotrow, robotcol = newrow, newcol
-        return canmove
+                return can
+
+    def domove(move, row, col):
+        moves = {
+            "<": (0,-1),
+            "^": (-1,0),
+            ">": (0,+1),
+            "v": (+1,0),
+        }
+        dr,dc = moves[move]
+        newrow = row + dr
+        newcol = col + dc
+        item = warehousemap[row][col]
+        warehousemap[row][col] = "."
+        match item:
+            case "@":
+                domove(move, newrow, newcol)
+            case "#":
+                raise AssertionError(f"cannot move {move} wall at {row=} {col=}")
+            case ".":
+                return row, col
+            case "[":
+                domove(move, newrow, newcol)
+                if move in "^v":
+                    domove(move, row, col+1)
+            case "]":
+                domove(move, newrow, newcol)
+                if move in "^v":
+                    domove(move, row, col-1)
+        warehousemap[newrow][newcol] = item
+        return newrow, newcol
 
 
     for move in itertools.chain.from_iterable(next(paragraphs)):
-        recursivemove(move)
-    #for line in warehousemap:
-    #    print("".join(line))
+        if canmove(move, robotrow, robotcol):
+            robotrow, robotcol = domove(move, robotrow, robotcol)
 
     gps = 0
     for row in range(height):
@@ -123,5 +143,3 @@ if aoc.part == "two":
             if warehousemap[row][col] == "[":
                 gps += row * 100 + col
     print(gps)
-
-#1545461 too high
