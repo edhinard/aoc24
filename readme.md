@@ -82,6 +82,28 @@ I will eventually learn how to quickly code a Depth Fisrt Search. A debug phase 
 
 The statement misled me (I think it was intentional). Seeing that the brute force solution of part 1 would not work for part 2, and that all the *arithmetic* tracks were doomed to failure, I finally found the *analytical* solution that fits. + a little improvement in `aoc` module related to spliting with regexp.
 
+### [--- Day 14: Restroom Redoubt ---](https://adventofcode.com/2024/day/14)
+
+*00:22:27* **2403** / *>24h* **28920**
+
+### [--- Day 15: Warehouse Woes ---](https://adventofcode.com/2024/day/15)
+
+*00:27:40* **1866** / *04:33:43* **5964**
+
+### [--- Day 16: Reindeer Maze ---](https://adventofcode.com/2024/day/16)
+
+*01:44:05* **5322** / *04:47:22* **6128**
+
+### [--- Day 17: Chronospatial Computer ---](https://adventofcode.com/2024/day/17)
+
+*01:01:05* **4542** / *10:03:01* **7821**
+
+### [--- Day 18: RAM Run ---](https://adventofcode.com/2024/day/18)
+
+*00:25:36* **3011** / *00:33:41* **2710**
+
+Dijkstra again! Only the length is needed, not the path. The length of the shortest path is stored in the memory. That is easy. Brute force solution for part 2, testing each labyrinth in turn - 31sec. Maybe a search by dichotomy would have been better.
+
 ## `aoc.py`
 
 All solutions use a helper module to ease reading input data. The structure of a solution script is:
