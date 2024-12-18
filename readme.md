@@ -102,6 +102,8 @@ This problem reminded me of the time when I used to play [sokoban](https://fr.wi
 
 *01:01:05* **4542** / *10:03:01* **7821**
 
+I must be tired, there was nothing in the programming of this emulator which justified spending so much time on it. The rest of the day was very busy, but I had time during breaks to think about part 2 (assembler decoding and A value construction method). I was surprised to see a DFS again to avoid deadlocks.
+
 ### [--- Day 18: RAM Run ---](https://adventofcode.com/2024/day/18)
 
 *00:25:36* **3011** / *00:33:41* **2710**
