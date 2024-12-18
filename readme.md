@@ -92,6 +92,8 @@ I tried a bunch of things to detect what might be a "Christmas tree" on Saturday
 
 *00:27:40* **1866** / *04:33:43* **5964**
 
+This problem reminded me of the time when I used to play [sokoban](https://fr.wikipedia.org/wiki/Sokoban) frantically at the office in the 90s. For the second part, I was not able to have just one function that tests the possibility of a move and actually does it. Finally there are two functions: `canmove()` and `domove()`.
+
 ### [--- Day 16: Reindeer Maze ---](https://adventofcode.com/2024/day/16)
 
 *01:44:05* **5322** / *04:47:22* **6128**
