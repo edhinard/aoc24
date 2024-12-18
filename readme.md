@@ -86,6 +86,8 @@ The statement misled me (I think it was intentional). Seeing that the brute forc
 
 *00:22:27* **2403** / *>24h* **28920**
 
+I tried a bunch of things to detect what might be a "Christmas tree" on Saturday. I gave up on Sunday and decided to build PNG files with 200 cards per image (I learned to use the [Pillow](https://pillow.readthedocs.io/en/stable/) module on this occasion.). A visual analysis finally gave me the solution.
+
 ### [--- Day 15: Warehouse Woes ---](https://adventofcode.com/2024/day/15)
 
 *00:27:40* **1866** / *04:33:43* **5964**
