@@ -110,6 +110,12 @@ I must be tired, there was nothing in the programming of this emulator which jus
 
 Dijkstra again! Only the length is needed, not the path. The length of the shortest path is stored in the memory. That is easy. Brute force solution for part 2, testing each labyrinth in turn - 31sec. Maybe a search by dichotomy would have been better.
 
+### [--- Day 19: Linen Layout ---](https://adventofcode.com/2024/day/19)
+
+*00:38:32* **4133** / *11:58:02* **16304**
+
+I sometimes feel like I don't really know what I'm doing. First part. OK. I start with a recursive function (DFS again). The program doesn't end. I debug the old way (with `print()`). I end up adding a list of sequences already encountered to simplify a bit. And surprise, the answer is instantaneous. I start again in the evening for part 2. Even with the previous list of sequences without a solution it gets stuck. I simply add a dictionary of solutions already encountered and their value (0 = no solution...). And once again, by surprise I have the right answer right away.
+
 ## `aoc.py`
 
 All solutions use a helper module to ease reading input data. The structure of a solution script is:
