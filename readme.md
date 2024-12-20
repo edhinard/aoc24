@@ -1,5 +1,7 @@
 # [Advent of Code 24](https://adventofcode.com/2024)
 
+[ToC]
+
 ## Daily log
 
 ### [--- Day 1: Historian Hysteria ---](https://adventofcode.com/2024/day/1)
@@ -98,6 +100,8 @@ This problem reminded me of the time when I used to play [sokoban](https://fr.wi
 
 *01:44:05* **5322** / *04:47:22* **6128**
 
+Rewritten afterwards with a solution available for both parts.
+
 ### [--- Day 17: Chronospatial Computer ---](https://adventofcode.com/2024/day/17)
 
 *01:01:05* **4542** / *10:03:01* **7821**
@@ -124,7 +128,7 @@ I think I now master the shortest path algorithm in a graph. Once again the solu
 
 
 
-## `aoc.py`
+## `aoc.py` helper module
 
 All solutions use a helper module to ease reading input data. The structure of a solution script is:
 
