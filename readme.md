@@ -92,7 +92,7 @@ I tried a bunch of things to detect what might be a "Christmas tree" on Saturday
 
 *00:27:40* **1866** / *04:33:43* **5964**
 
-This problem reminded me of the time when I used to play [sokoban](https://fr.wikipedia.org/wiki/Sokoban) frantically at the office in the 90s. For the second part, I was not able to have just one function that tests the possibility of a move and actually does it. Finally there are two functions: `canmove()` and `domove()`.
+This problem reminded me of the time when I used to play [sokoban](https://fr.wikipedia.org/wiki/Sokoban) frantically at the office in the 90s. For the second part, I was not able to have just one function that tests the possibility of a move and actually does it. Finally there are two recursive functions: `canmove()` and `domove()`.
 
 ### [--- Day 16: Reindeer Maze ---](https://adventofcode.com/2024/day/16)
 
@@ -108,13 +108,21 @@ I must be tired, there was nothing in the programming of this emulator which jus
 
 *00:25:36* **3011** / *00:33:41* **2710**
 
-Dijkstra again! Only the length is needed, not the path. The length of the shortest path is stored in the memory. That is easy. Brute force solution for part 2, testing each labyrinth in turn - 31sec. Maybe a search by dichotomy would have been better.
+Dijkstra again! Only the length is needed, not the path. The length of the shortest path is stored in the memory. That is easy. Brute force solution for part 2, testing each memory map in turn take 31sec. Maybe a search by dichotomy would have been better.
 
 ### [--- Day 19: Linen Layout ---](https://adventofcode.com/2024/day/19)
 
 *00:38:32* **4133** / *11:58:02* **16304**
 
 I sometimes feel like I don't really know what I'm doing. First part. OK. I start with a recursive function (DFS again). The program doesn't end. I debug the old way (with `print()`). I end up adding a list of sequences already encountered to simplify a bit. And surprise, the answer is instantaneous. I start again in the evening for part 2. Even with the previous list of sequences without a solution it gets stuck. I simply add a dictionary of solutions already encountered and their value (0 = no solution...). And once again, by surprise I have the right answer right away.
+
+### [--- Day 20: Race Condition ---](https://adventofcode.com/2024/day/20)
+
+*00:29:17* **1342** / *03:16:32* **4432**
+
+I think I now master the shortest path algorithm in a graph. Once again the solution of part 2 applies to part one and allows a significant time saving compared to the naive approach. There should still be progress to be made since it still takes me about 20 seconds to obtain the solutions.
+
+
 
 ## `aoc.py`
 
