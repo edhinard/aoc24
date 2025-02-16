@@ -1,7 +1,5 @@
 # [Advent of Code 24](https://adventofcode.com/2024)
 
-[ToC]
-
 ## Daily log
 
 ### [--- Day 1: Historian Hysteria ---](https://adventofcode.com/2024/day/1)
@@ -125,6 +123,29 @@ I sometimes feel like I don't really know what I'm doing. First part. OK. I star
 *00:29:17* **1342** / *03:16:32* **4432**
 
 I think I now master the shortest path algorithm in a graph. Once again the solution of part 2 applies to part one and allows a significant time saving compared to the naive approach. There should still be progress to be made since it still takes me about 20 seconds to obtain the solutions.
+
+### [--- Day 21: Keypad Conundrum ---](https://adventofcode.com/2024/day/21)
+*01:43:35* **1270** / *>24h* **17590**
+
+It took me 2 weeks to write the recursive function the right way + I found on reddit the hack about the mandatory `functools.cache` decorator I did not know.
+
+### [--- Day 22: Monkey Market ---](https://adventofcode.com/2024/day/22)
+*00:10:13* **1396** / *00:47:05* **1670**
+
+On family vacation. I had time to go back to bed without waking anyone.
+
+### [--- Day 23: LAN Party ---](https://adventofcode.com/2024/day/23)
+*00:26:13* **2772** / *01:12:47* **3045**
+
+*idem* yesterday.
+
+### [--- Day 24: Crossed Wires ---](https://adventofcode.com/2024/day/24)
+*00:22:57* **1767** / *>24h* **15932**
+
+I had to stop for breakfeast. Went back to it in January after finding a clue on reddit to look for anomalies in 1-bit adders.
+
+### [--- Day 25: Code Chronicle ---](https://adventofcode.com/2024/day/25)
+*00:29:15* **3222** / *>24h* **14953**
 
 
 
